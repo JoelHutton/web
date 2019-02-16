@@ -1,0 +1,7 @@
+	#snippet to enable use of fcgibin in the cgi-bin directory
+	location ~ ^/cgi-bin {
+		root /var/www/html/;
+		include fastcgi_params;
+		fastcgi_pass unix:/var/run/fcgiwrap.socket;
+		fastcgi_param SCRIPT_FILENAME /var/www/html/cgi-bin/$fastcgi_script_name;
+	}
